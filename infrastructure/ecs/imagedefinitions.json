@@ -1,0 +1,81 @@
+{
+  "pipeline": {
+    "name": "Rygneco-Backend-Pipeline",
+    "roleArn": "arn:aws:iam::<ACCOUNT_ID>:role/CodePipelineServiceRole",
+    "artifactStore": {
+      "type": "S3",
+      "location": "rygneco-codepipeline-artifacts"
+    },
+    "stages": [
+      {
+        "name": "Source",
+        "actions": [
+          {
+            "name": "SourceArtifact",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "AWS",
+              "provider": "S3",
+              "version": "1"
+            },
+            "configuration": {
+              "S3Bucket": "rygneco-codepipeline-artifacts",
+              "S3ObjectKey": "backend-trigger.zip"
+            },
+            "outputArtifacts": [
+              { "name": "SourceOutput" }
+            ],
+            "runOrder": 1
+          }
+        ]
+      },
+      {
+        "name": "Build",
+        "actions": [
+          {
+            "name": "BackendBuild",
+            "actionTypeId": {
+              "category": "Build",
+              "owner": "AWS",
+              "provider": "CodeBuild",
+              "version": "1"
+            },
+            "configuration": {
+              "ProjectName": "Rygneco-Backend-Build"
+            },
+            "inputArtifacts": [
+              { "name": "SourceOutput" }
+            ],
+            "outputArtifacts": [
+              { "name": "BuildOutput" }
+            ],
+            "runOrder": 1
+          }
+        ]
+      },
+      {
+        "name": "Deploy",
+        "actions": [
+          {
+            "name": "DeployToECS",
+            "actionTypeId": {
+              "category": "Deploy",
+              "owner": "AWS",
+              "provider": "ECS",
+              "version": "1"
+            },
+            "configuration": {
+              "ClusterName": "Rygneco-Cluster",
+              "ServiceName": "Rygneco-Backend-Service",
+              "FileName": "imagedefinitions.json"
+            },
+            "inputArtifacts": [
+              { "name": "BuildOutput" }
+            ],
+            "runOrder": 1
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - aws --version
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - IMAGE_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION}
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t rygneco-backend ./backend
+      - docker tag rygneco-backend:latest <ACCOUNT_ID>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/rygneco-backend:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo "Pushing Docker image to ECR..."
+      - docker push <ACCOUNT_ID>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/rygneco-backend:$IMAGE_TAG
+      - printf '[{"name":"rygneco-backend","imageUri":"%s"}]' <ACCOUNT_ID>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/rygneco-backend:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json
