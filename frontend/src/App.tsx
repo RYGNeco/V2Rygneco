@@ -67,6 +67,8 @@ function AuthLayoutWrapper() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          {/* Add catch-all route inside auth layout */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </SuspenseWrapper>
     </AuthLayout>
@@ -81,6 +83,8 @@ function AdminLayoutWrapper() {
         <Route element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path="metrics" element={<AdminMetrics />} />
+          {/* Add catch-all route inside admin layout */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </SuspenseWrapper>
@@ -96,6 +100,8 @@ function ClientLayoutWrapper() {
           <Route index element={<ClientHistory />} />
           <Route path="requests" element={<ClientRequests />} />
           <Route path="profile" element={<UserManagement />} />
+          {/* Add catch-all route inside client layout */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </SuspenseWrapper>
