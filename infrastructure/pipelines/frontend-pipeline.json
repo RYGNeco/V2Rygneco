@@ -20,7 +20,7 @@
             },
             "configuration": {
               "S3Bucket": "rygneco-codepipeline-artifacts",
-              "S3ObjectKey": "frontend-build.zip"
+              "S3ObjectKey": "frontend-source.zip"
             },
             "outputArtifacts": [
               { "name": "SourceOutput" }

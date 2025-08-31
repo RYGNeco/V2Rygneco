@@ -1,0 +1,57 @@
+{
+  "pipeline": {
+    "name": "Rygneco-Backend-Pipeline",
+    "roleArn": "arn:aws:iam::<ACCOUNT_ID>:role/CodePipelineServiceRole",
+    "artifactStore": {
+      "type": "S3",
+      "location": "rygneco-codepipeline-artifacts"
+    },
+    "stages": [
+      {
+        "name": "Source",
+        "actions": [
+          {
+            "name": "ECRSource",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "AWS",
+              "provider": "ECR",
+              "version": "1"
+            },
+            "configuration": {
+              "RepositoryName": "rygneco-backend",
+              "ImageTag": "latest"
+            },
+            "outputArtifacts": [
+              { "name": "SourceOutput" }
+            ],
+            "runOrder": 1
+          }
+        ]
+      },
+      {
+        "name": "Deploy",
+        "actions": [
+          {
+            "name": "DeployToECS",
+            "actionTypeId": {
+              "category": "Deploy",
+              "owner": "AWS",
+              "provider": "ECS",
+              "version": "1"
+            },
+            "configuration": {
+              "ClusterName": "Rygneco-Cluster",
+              "ServiceName": "Rygneco-Backend-Service",
+              "FileName": "imagedefinitions.json"
+            },
+            "inputArtifacts": [
+              { "name": "SourceOutput" }
+            ],
+            "runOrder": 1
+          }
+        ]
+      }
+    ]
+  }
+}
