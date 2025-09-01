@@ -6,6 +6,8 @@ node_modules/
 dist/
 */dist/
 build/
+arnav_doc/
+
 
 # Environment variables
 .env
