@@ -5,18 +5,13 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing dependencies..."
+      - npm install -g pnpm
       - cd frontend
-      - npm ci
+      - pnpm install
   build:
     commands:
-      - echo "Building frontend..."
-      - npm run build
-  post_build:
-    commands:
-      - echo "Zipping build..."
-      - cd dist
-      - zip -r ../../frontend-build.zip .
+      - pnpm run build
 artifacts:
   files:
-    - frontend-build.zip
+    - '**/*'
+  base-directory: frontend/dist
