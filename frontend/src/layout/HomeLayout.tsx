@@ -9,20 +9,17 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div className="flex min-h-screen w-full bg-white">
-            {/* Sidebar */}
-            {/* <Sidebar /> */}
-
+        <div className="flex min-h-screen w-full overflow-hidden">
             {/* Main content wrapper */}
             <div className="flex flex-col flex-1">
                 {/* Navbar */}
-                <Navbar />
+                {/* <Navbar /> */}
 
                 {/* Page content */}
-                <main className="flex-1 p-6">{children}</main>
+                <main className="flex-1">{children}</main>
 
                 {/* Footer */}
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     );

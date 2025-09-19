@@ -2,7 +2,9 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-white via-stone-50/30 to-warm-gray-100/40 relative overflow-hidden">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0)_50%)]" />
       {/* Logo in top left */}
       <div className="fixed top-4 sm:top-8 left-6 sm:left-12 lg:left-16 xl:left-24 z-50">
         <img
