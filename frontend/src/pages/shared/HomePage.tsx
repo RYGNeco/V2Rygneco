@@ -8,11 +8,11 @@ const HomePage: React.FC = () => {
         <img
           src="/assets/rygn-eco-logo.png"
           alt="RYGNeco Logo"
-          className="h-12 sm:h-20 w-auto object-contain"
+          className="h-16 sm:h-20 w-auto object-contain"
         />
       </div>
 
-      <div className="w-full min-h-screen flex flex-col justify-center px-4 sm:px-0 sm:pl-8 lg:pl-12 pt-24 sm:pt-32">
+      <div className="w-full min-h-screen flex flex-col justify-center px-4 sm:px-0 sm:pl-8 lg:pl-12 pt-22 sm:pt-32">
         {/* Content Container */}
         <div className="max-w-xl space-y-8 sm:space-y-12">
           {/* Coming Soon Text */}
