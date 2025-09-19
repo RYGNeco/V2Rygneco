@@ -2,9 +2,9 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden bg-gradient-to-br from-indigo-100 via-green-80 to-sky-100">
       {/* Logo in top left */}
-      <div className="fixed top-4 sm:top-8 left-6 sm:left-12 lg:left-16 xl:left-24 z-50">
+      <div className="fixed top-4 sm:top-8 left-4 sm:left-8 lg:left-12 z-50">
         <img
           src="/assets/rygn-eco-logo.png"
           alt="RYGNeco Logo"
@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
         />
       </div>
 
-      <div className="w-full min-h-screen flex flex-col justify-center px-6 sm:px-0 sm:pl-12 lg:pl-16 xl:pl-24">
+      <div className="w-full min-h-screen flex flex-col justify-center px-4 sm:px-0 sm:pl-8 lg:pl-12">
         {/* Content Container */}
         <div className="max-w-xl space-y-8 sm:space-y-12 -mt-16 sm:mt-0">
           {/* Coming Soon Text */}
