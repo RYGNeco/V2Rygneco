@@ -9,11 +9,11 @@ export function Navbar() {
           <div className="px-3 sm:px-6">
             <div className="flex h-12 sm:h-14 items-center justify-between">
               {/* Left side - Logo */}
-              <Link
-                to="/"
+              <Link 
+                to="/" 
                 className="flex items-center space-x-2 hover:opacity-80 transition-all duration-200"
               >
-                <img
+                <img 
                   src="/assets/rygn-eco-logo.png"
                   alt="RYGNeco"
                   className="h-10 sm:h-12 w-auto"
