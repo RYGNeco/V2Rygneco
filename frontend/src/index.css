@@ -57,5 +57,25 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  /* Improve zoom accessibility */
+  html {
+    overflow-x: hidden;
+  }
+  
+  /* Ensure text remains readable at high zoom levels */
+  @media (min-resolution: 2dppx) {
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+  
+  /* Better handling of very large text */
+  @media (min-width: 0px) {
+    .text-responsive {
+      font-size: clamp(1rem, 4vw, 2rem);
+    }
+  }
 }
 
