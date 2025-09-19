@@ -3,40 +3,40 @@ import React from 'react';
 const HomePage: React.FC = () => {
   return (
     <div 
-      className="min-h-screen w-full bg-white relative bg-gradient-to-br from-indigo-100 via-white to-sky-100 flex flex-col"
+      className="min-h-screen w-full bg-white relative bg-gradient-to-br from-indigo-100 via-white to-sky-100 flex flex-col zoom-safe"
       style={{
-        minHeight: '100dvh', // Use min-height instead of fixed height
+        minHeight: '100vh', // Use min-height to allow content to flow naturally
         width: '100%', // Use 100% instead of 100vw to avoid horizontal scroll
       }}
     >
       {/* Logo positioned at top */}
-      <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute top-8 sm:top-20 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] sm:max-w-none logo-container">
         <img
           src="/assets/rygneco-logo.png"
           alt="RYGNeco Logo"
-          className="h-16 sm:h-20 w-auto object-contain"
+          className="h-16 sm:h-20 w-auto object-contain max-w-full"
         />
       </div>
 
       {/* Main content area with proper spacing */}
-      <div className="flex-1 w-full flex flex-col justify-center items-center px-4 py-16 sm:py-20">
+      <div className="w-full flex flex-col justify-start sm:justify-center items-center px-4 py-2 sm:py-20 pt-20 sm:pt-36 high-zoom-safe">
         {/* Content Container with better responsive design */}
-        <div className="w-full max-w-2xl space-y-4 sm:space-y-6 md:space-y-8 text-center">
+        <div className="w-full max-w-2xl space-y-2 sm:space-y-6 md:space-y-8 text-center pt-24 sm:pt-2">
           {/* Coming Soon Text */}
-          <div className="space-y-3 sm:space-y-4 md:space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-zinc-900 tracking-tight leading-[0.9] font-bold break-words">
-              <span className="block sm:inline">Coming</span> <span className="block sm:inline">Soon</span>
+          <div className="space-y-1 sm:space-y-4 md:space-y-6">
+            <h1 className="text-[3rem] xs:text-[2rem] sm:text-[3.85rem] md:text-[4.125rem] lg:text-[4.95rem] xl:text-[5.5rem] 2xl:text-[6.6rem] pb-1 text-zinc-900 tracking-tight leading-[0.9] font-bold coming-soon-text">
+              Coming Soon
             </h1>
             
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-700 leading-relaxed max-w-xl sm:max-w-2xl mx-auto font-light px-2">
+            <p className="text-base sm:text-base md:text-lg lg:text-xl text-zinc-800 leading-relaxed max-w-xl sm:max-w-2xl mx-auto font-light px-2 pt-1">
               We're transforming how communities and businesses handle e-waste. RYGNeco makes recycling smarter, greener, and easier for everyone.
             </p>
           </div>
 
           {/* Email Signup */}
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 justify-center max-w-lg mx-auto">
+          <div className="space-y-2 pt-12 sm:pt-12 sm:mt-8">
+            <div className="flex flex-col sm:flex-row sm:items-stretch gap-6 sm:gap-3 justify-center max-w-lg mx-auto">
               <div className="relative flex-1 min-w-0">
                 <input
                   type="email"
@@ -48,15 +48,15 @@ const HomePage: React.FC = () => {
                 Join the Movement
               </button>
             </div>
-            <p className="text-sm text-zinc-600">
+            <p className="text-sm text-zinc-600 pt-2 sm:pt-2">
               Be the first to experience the future of sustainable tech
             </p>
           </div>
         </div>
       </div>
 
-      {/* Footer positioned at bottom */}
-      <div className="mt-auto pt-8 pb-4">
+      {/* Footer positioned at 80% height on mobile, normal flow on desktop */}
+      <div className="absolute bottom-[20vh] left-0 right-0 sm:relative sm:bottom-auto sm:left-auto sm:right-auto px-4 sm:px-20 pb-1 sm:mt-auto sm:pt-8 sm:pb-4">
         <div className="text-center px-4">
           <p className="text-sm text-zinc-500 mb-1">Questions? Contact us at</p>
           <a

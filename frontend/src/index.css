@@ -77,5 +77,76 @@
       font-size: clamp(1rem, 4vw, 2rem);
     }
   }
+  
+  /* Ensure Coming Soon stays on one line */
+  .coming-soon-text {
+    white-space: nowrap;
+    display: inline-block;
+    word-spacing: normal;
+    letter-spacing: normal;
+  }
+  
+  /* Mobile-specific adjustments for Coming Soon */
+  @media (max-width: 640px) {
+    .coming-soon-text {
+      font-size: clamp(1.5rem, 8vw, 3rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  }
+  
+  /* High zoom level handling - prevent collisions */
+  @media (min-resolution: 1.5dppx) {
+    /* Ensure proper spacing at high zoom levels */
+    .zoom-safe {
+      min-height: 100vh;
+    }
+    
+    /* Prevent logo and content collision at high zoom */
+    @media (min-width: 320px) {
+      .logo-spacing {
+        margin-top: 6rem;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .logo-spacing {
+        margin-top: 8rem;
+      }
+    }
+  }
+  
+  /* Very high zoom levels (200%+) */
+  @media (min-resolution: 2dppx) {
+    .high-zoom-safe {
+      padding-top: 8rem;
+    }
+    
+    @media (min-width: 640px) {
+      .high-zoom-safe {
+        padding-top: 10rem;
+      }
+    }
+  }
+  
+  /* Extreme zoom levels (300%+) - additional safety */
+  @media (min-resolution: 3dppx) {
+    .high-zoom-safe {
+      padding-top: 12rem;
+    }
+    
+    @media (min-width: 640px) {
+      .high-zoom-safe {
+        padding-top: 14rem;
+      }
+    }
+    
+    /* Ensure logo doesn't overflow horizontally */
+    .logo-container {
+      max-width: calc(100vw - 2rem);
+    }
+  }
 }
 
