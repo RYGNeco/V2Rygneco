@@ -41,14 +41,19 @@ const HomePage: React.FC = () => {
                 <div className="w-full max-w-2xl space-y-2 sm:space-y-6 md:space-y-8 text-center pt-24 sm:pt-2">
                     {/* Coming Soon Text */}
                     <div className="space-y-1 sm:space-y-4 md:space-y-6">
-                        <h1 className="text-[3rem] xs:text-[2rem] sm:text-[3.85rem] md:text-[4.125rem] lg:text-[4.95rem] xl:text-[5.5rem] 2xl:text-[6.6rem] pb-1 text-zinc-900 tracking-tight leading-[0.9] font-bold coming-soon-text">
+                        <h1 className="font-space text-[3rem] xs:text-[2rem] sm:text-[3.85rem] md:text-[4.125rem] lg:text-[4.95rem] xl:text-[5.5rem] 2xl:text-[6.6rem] pb-3 sm:pb-1 text-zinc-900 tracking-tight leading-[0.9] font-bold coming-soon-text">
                             Coming Soon
                         </h1>
 
                         {/* Description */}
-                        <p className="text-base sm:text-bold md:text-lg lg:text-xl text-zinc-800 leading-relaxed max-w-xl sm:max-w-2xl mx-auto font-light px-2 pt-1">
-                            We're transforming how communities and businesses handle e-waste. RYGNeco makes recycling smarter, greener, and easier for everyone.
-                        </p>
+                        <div className="space-y-3">
+                            <p className="text-xl sm:text-2xl md:text-3xl lg:text-3xl text-zinc-900 leading-tight max-w-3xl mx-auto font-bold px-2">
+                                We're <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">transforming</span> how communities and businesses handle e-waste.
+                            </p>
+                            {/* <p className="text-base sm:text-lg md:text-xl text-zinc-700 leading-relaxed max-w-2xl mx-auto font-medium px-2">
+                                RYGNeco makes recycling smarter, greener, and easier for everyone.
+                            </p> */}
+                        </div>
                     </div>
 
                     {/* Email Signup */}
