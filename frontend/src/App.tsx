@@ -17,6 +17,7 @@ const HomePage = lazy(() => import("./pages/shared/HomePage"));
 const LoginPage = lazy(() => import("./pages/auth/LoginPage"));
 const SignupPage = lazy(() => import("./pages/auth/SignupPage"));
 const NotFoundPage = lazy(() => import("./pages/shared/NotFoundPage"));
+const ComingSoonPage = lazy(() => import("./pages/shared/ComingSoonPage"));
 
 // Admin routes
 const AdminLayout = lazy(() => import("./layout/AdminLayout"));
@@ -52,7 +53,8 @@ function MainLayout() {
     <Layout>
       <SuspenseWrapper>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/" element={<ComingSoonPage />} />
         </Routes>
       </SuspenseWrapper>
     </Layout>

@@ -2,71 +2,108 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div 
-      className="min-h-screen w-full bg-white relative bg-gradient-to-br from-indigo-100 via-white to-sky-100 flex flex-col zoom-safe"
-      style={{
-        minHeight: '100vh', // Use min-height to allow content to flow naturally
-        width: '100%', // Use 100% instead of 100vw to avoid horizontal scroll
-      }}
-    >
-      {/* Logo positioned at top */}
-      <div className="absolute top-8 sm:top-20 left-1/2 -translate-x-1/2 z-10 max-w-[90vw] sm:max-w-none logo-container">
-        <img
-          src="/assets/rygneco-logo.png"
-          alt="RYGNeco Logo"
-          className="h-16 sm:h-20 w-auto object-contain max-w-full"
-        />
-      </div>
+    <div className="min-h-screen bg-white">
 
-      {/* Main content area with proper spacing */}
-      <div className="w-full flex flex-col justify-start sm:justify-center items-center px-4 py-2 sm:py-20 pt-20 sm:pt-36 high-zoom-safe">
-        {/* Content Container with better responsive design */}
-        <div className="w-full max-w-2xl space-y-2 sm:space-y-6 md:space-y-8 text-center pt-24 sm:pt-2">
-          {/* Coming Soon Text */}
-          <div className="space-y-1 sm:space-y-4 md:space-y-6">
-            <h1 className="text-[3rem] xs:text-[2rem] sm:text-[3.85rem] md:text-[4.125rem] lg:text-[4.95rem] xl:text-[5.5rem] 2xl:text-[6.6rem] pb-1 text-zinc-900 tracking-tight leading-[0.9] font-bold coming-soon-text">
-              Coming Soon
-            </h1>
-            
-            {/* Description */}
-            <p className="text-base sm:text-base md:text-lg lg:text-xl text-zinc-800 leading-relaxed max-w-xl sm:max-w-2xl mx-auto font-light px-2 pt-1">
-              We're transforming how communities and businesses handle e-waste. RYGNeco makes recycling smarter, greener, and easier for everyone.
-            </p>
+      {/* Hero Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            Sustainable E-Waste
+            <span className="text-green-600"> Recycling</span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Join us in creating a greener future by responsibly recycling your electronic waste.
+            We make e-waste disposal simple, secure, and environmentally friendly.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+              Schedule Pickup
+            </button>
+            <button className="border-2 border-green-600 text-green-600 hover:bg-green-700 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+              Learn More
+            </button>
           </div>
+        </div>
+      </section>
 
-          {/* Email Signup */}
-          <div className="space-y-2 pt-12 sm:pt-12 sm:mt-8">
-            <div className="flex flex-col sm:flex-row sm:items-stretch gap-6 sm:gap-3 justify-center max-w-lg mx-auto">
-              <div className="relative flex-1 min-w-0">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 rounded-lg border border-zinc-300 text-base placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-w-0"
-                />
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Services</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🚚</span>
               </div>
-              <button className="flex-shrink-0 font-semibold px-6 py-3 bg-gradient-to-r from-[#236DE2] to-[#15B2AA] text-white rounded-lg hover:from-[#1e5bc7] hover:to-[#129a94] text-base transition-all duration-200 shadow-lg hover:shadow-xl min-w-fit">
-                Join the Movement
-              </button>
+              <h4 className="text-xl font-semibold mb-2">Free Pickup</h4>
+              <p className="text-gray-600">Convenient pickup service for businesses and households</p>
             </div>
-            <p className="text-sm text-zinc-600 pt-2 sm:pt-2">
-              Be the first to experience the future of sustainable tech
-            </p>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">♻️</span>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Secure Recycling</h4>
+              <p className="text-gray-600">Data destruction and environmentally safe processing</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">📊</span>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Certification</h4>
+              <p className="text-gray-600">Compliance certificates for your records</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer positioned at 80% height on mobile, normal flow on desktop */}
-      <div className="absolute bottom-[20vh] left-0 right-0 sm:relative sm:bottom-auto sm:left-auto sm:right-auto px-4 sm:px-20 pb-1 sm:mt-auto sm:pt-8 sm:pb-4">
-        <div className="text-center px-4">
-          <p className="text-sm text-zinc-500 mb-1">Questions? Contact us at</p>
-          <a
-            href="mailto:info@rygneco.com"
-            className="text-zinc-700 hover:text-zinc-900 text-sm font-medium transition-colors duration-200 break-all sm:break-normal"
-          >
-            info@rygneco.com
-          </a>
+      {/* About Section */}
+      <section id="about" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">About Rygneco</h3>
+              <p className="text-gray-600 mb-4">
+                We are a leading e-waste recycling company committed to environmental sustainability
+                and responsible electronic waste management.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our state-of-the-art facilities ensure that your electronic devices are processed
+                safely while recovering valuable materials for reuse.
+              </p>
+              <div className="flex space-x-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">1000+</div>
+                  <div className="text-sm text-gray-500">Businesses Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">50K+</div>
+                  <div className="text-sm text-gray-500">Devices Recycled</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">99%</div>
+                  <div className="text-sm text-gray-500">Recovery Rate</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-green-600 h-64 rounded-lg flex items-center justify-center">
+              <span className="text-white text-4xl font-bold">Rygneco</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">Get Started Today</h3>
+          <p className="text-gray-600 mb-8">
+            Ready to recycle your e-waste responsibly? Contact us for a free consultation.
+          </p>
+
+        </div>
+      </section>
+
+
     </div>
   );
 };
