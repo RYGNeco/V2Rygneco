@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
             <img
                 src="/assets/landing/left-hand-gesture_1.png"
                 alt="Left Hand"
-                className="fixed left-0 top-[35%] sm:top-[40%] md:top-[45%] lg:top-[44%] -translate-y-1/2 h-48 sm:h-64 md:h-64 lg:h-52 xl:h-[26rem] 2xl:h-[28rem] w-auto object-contain opacity-80 z-5 hidden sm:block"
+                className="fixed left-0 top-[35%] sm:top-[40%] md:top-[45%] lg:top-[46%] -translate-y-1/2 h-48 sm:h-64 md:h-64 lg:h-52 xl:h-[26rem] 2xl:h-[28rem] w-auto object-contain opacity-80 z-5 hidden sm:block"
             />
 
             <img
