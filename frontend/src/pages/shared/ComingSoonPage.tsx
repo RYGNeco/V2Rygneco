@@ -79,18 +79,18 @@ const HomePage: React.FC = () => {
             {/* Hand Images positioned from screen edges - cross-browser compatible */}
             <div className="absolute inset-0 pointer-events-none hidden md:block">
                 <img
-                    src="/assets/landing/left-hand-gesture.png"
+                    src="/assets/landing/left-hand-gesture_2.png"
                     alt="Left Hand"
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 h-[20vh] sm:h-[25vh] md:h-[30vh] lg:h-[35vh] xl:h-[40vh] max-h-80 w-auto object-contain opacity-80 z-5 transition-all"
+                    className="absolute left-0 top-[48%] transform -translate-y-1/2 h-[16vh] sm:h-[25vh] md:h-[30vh] lg:h-[35vh] xl:h-[36vh] max-h-80 w-auto object-contain opacity-80 z-5 transition-all"
                     style={{
                         imageRendering: 'crisp-edges',
                     }}
                 />
                 
                 <img
-                    src="/assets/landing/right-hand-gesture_1.png"
+                    src="/assets/landing/right-hand-gesture_2.png"
                     alt="Right Hand"
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 h-[18vh] sm:h-[25vh] md:h-[36vh] lg:h-[40vh] xl:h-[60vh] 2xl:h-[56vh] 3xl:h-[48vh] w-auto object-contain opacity-80 z-5 transition-all"
+                    className="absolute right-0 top-[44%] transform -translate-y-1/2 h-[17vh] sm:h-[25vh] md:h-[36vh] lg:h-[36vh] xl:h-[32vh] 2xl:h-[32vh] 3xl:h-[48vh] w-auto object-contain opacity-80 z-5 transition-all"
                     style={{
                         imageRendering: 'crisp-edges',
                     }}
