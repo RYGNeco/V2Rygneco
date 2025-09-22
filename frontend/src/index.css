@@ -50,17 +50,173 @@
 }
 
 @layer base {
-  * {
+  /* Cross-browser CSS reset and normalization */
+  *, *::before, *::after {
     @apply border-border;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
+  
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Normalize font rendering across browsers */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent zoom issues */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Ensure consistent line-height across browsers */
+    line-height: 1.6;
+    /* Prevent font size adjustments in mobile browsers */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Consistent font rendering */
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Improve zoom accessibility */
-  html {
-    overflow-x: hidden;
+  /* Normalize image behavior across browsers */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Prevent image dragging */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    /* Smooth image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Normalize button behavior */
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    /* Prevent button text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Normalize input behavior */
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    background: transparent;
+    /* Fix iOS input zoom */
+    font-size: 16px;
+  }
+  
+  /* Cross-browser gradient support */
+  .bg-gradient-to-br {
+    background: -webkit-linear-gradient(315deg, var(--tw-gradient-stops));
+    background: -moz-linear-gradient(315deg, var(--tw-gradient-stops));
+    background: -o-linear-gradient(315deg, var(--tw-gradient-stops));
+    background: linear-gradient(135deg, var(--tw-gradient-stops));
+  }
+  
+  .bg-gradient-to-r {
+    background: -webkit-linear-gradient(left, var(--tw-gradient-stops));
+    background: -moz-linear-gradient(left, var(--tw-gradient-stops));
+    background: -o-linear-gradient(left, var(--tw-gradient-stops));
+    background: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  
+  /* Cross-browser text gradient support */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+  
+  /* Cross-browser transform support */
+  .transform {
+    -webkit-transform: var(--tw-transform);
+    -moz-transform: var(--tw-transform);
+    -ms-transform: var(--tw-transform);
+    transform: var(--tw-transform);
+  }
+  
+  /* Cross-browser shadow support */
+  .shadow-lg {
+    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .shadow-xl {
+    -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Cross-browser transition support */
+  .transition-all {
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+  }
+  
+  /* Browser-specific fixes */
+  
+  /* Firefox specific */
+  @-moz-document url-prefix() {
+    .coming-soon-text {
+      line-height: 1.1 !important;
+    }
+  }
+  
+  /* Safari specific */
+  @supports (-webkit-appearance: none) {
+    .bg-clip-text {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  
+  /* Edge specific */
+  @supports (-ms-ime-align: auto) {
+    .flex {
+      display: -ms-flexbox;
+    }
+  }
+  
+  /* High zoom level adjustments */
+  @media (max-width: 480px) {
+    .coming-soon-responsive {
+      font-size: clamp(2rem, 8vw, 4rem) !important;
+      line-height: 1.1 !important;
+    }
+    
+    .description-responsive {
+      font-size: clamp(0.875rem, 4vw, 1.125rem) !important;
+      line-height: 1.4 !important;
+    }
   }
   
   /* Ensure text remains readable at high zoom levels */
@@ -68,84 +224,6 @@
     body {
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
-    }
-  }
-  
-  /* Better handling of very large text */
-  @media (min-width: 0px) {
-    .text-responsive {
-      font-size: clamp(1rem, 4vw, 2rem);
-    }
-  }
-  
-  /* Ensure Coming Soon stays on one line */
-  .coming-soon-text {
-    white-space: nowrap;
-    display: inline-block;
-    word-spacing: normal;
-    letter-spacing: normal;
-  }
-  
-  /* Mobile-specific adjustments for Coming Soon */
-  @media (max-width: 640px) {
-    .coming-soon-text {
-      font-size: clamp(1.5rem, 8vw, 3rem);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-    }
-  }
-  
-  /* High zoom level handling - prevent collisions */
-  @media (min-resolution: 1.5dppx) {
-    /* Ensure proper spacing at high zoom levels */
-    .zoom-safe {
-      min-height: 100vh;
-    }
-    
-    /* Prevent logo and content collision at high zoom */
-    @media (min-width: 320px) {
-      .logo-spacing {
-        margin-top: 6rem;
-      }
-    }
-    
-    @media (min-width: 640px) {
-      .logo-spacing {
-        margin-top: 8rem;
-      }
-    }
-  }
-  
-  /* Very high zoom levels (200%+) */
-  @media (min-resolution: 2dppx) {
-    .high-zoom-safe {
-      padding-top: 8rem;
-    }
-    
-    @media (min-width: 640px) {
-      .high-zoom-safe {
-        padding-top: 10rem;
-      }
-    }
-  }
-  
-  /* Extreme zoom levels (300%+) - additional safety */
-  @media (min-resolution: 3dppx) {
-    .high-zoom-safe {
-      padding-top: 12rem;
-    }
-    
-    @media (min-width: 640px) {
-      .high-zoom-safe {
-        padding-top: 14rem;
-      }
-    }
-    
-    /* Ensure logo doesn't overflow horizontally */
-    .logo-container {
-      max-width: calc(100vw - 2rem);
     }
   }
 }
